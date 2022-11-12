@@ -1,7 +1,7 @@
 /*
  *This program asks for 10 numbers, and shows:
  1- The positive numbers' mean 
- 2- The negative numbers' maan
+ 2- The negative numbers' mean
  4- The numbers of zeros.
  */
 package com.douglas.projects;
