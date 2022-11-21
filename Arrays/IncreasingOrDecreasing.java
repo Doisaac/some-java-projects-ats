@@ -26,7 +26,7 @@ public class IncreasingOrDecreasing {
             }
             
             if(arreglo[i] > arreglo[i+1]){
-                decreciente = true;
+                decreciente = false;
             }
         }
         
