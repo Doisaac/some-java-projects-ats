@@ -5,8 +5,12 @@
 package doisaac.interfacedesigner;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
@@ -309,6 +313,20 @@ public class Window extends javax.swing.JFrame {
                 new Window().setVisible(true);
             }
         });
+        
+        try {
+            // LOOK AND FEEL SETTINGS
+            UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+        } catch (ClassNotFoundException ex) {
+            //Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            //Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            //Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            //Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
