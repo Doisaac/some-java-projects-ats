@@ -306,17 +306,10 @@ public class Window extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Window.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Window().setVisible(true);
-            }
-        });
         
+        // LOOK AND FEEL SETTING
         try {
-            // LOOK AND FEEL SETTINGS
-            UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+            UIManager.setLookAndFeel("com.jtattoo.plaf.hifi.HiFiLookAndFeel");
         } catch (ClassNotFoundException ex) {
             //Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
@@ -326,6 +319,14 @@ public class Window extends javax.swing.JFrame {
         } catch (UnsupportedLookAndFeelException ex) {
             //Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Window().setVisible(true);
+            }
+        });
+        
         
     }
 

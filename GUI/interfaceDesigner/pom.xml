@@ -29,5 +29,11 @@
             </plugin>
         </plugins>
     </build>
-    
+    <dependencies>
+        <dependency>
+            <groupId>JTatto</groupId>
+            <artifactId>JTatto</artifactId>
+            <version>1.6.13</version>
+        </dependency>
+    </dependencies>
 </project>
