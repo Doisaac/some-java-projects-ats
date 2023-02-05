@@ -5,6 +5,13 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 public class FCurrencyConverter extends javax.swing.JFrame {
 
+    // save the currency 1
+    private String currencySelected1 = "";
+    private String currencySelected2 = "";
+    private String moneyAmount = "";
+    private double moneyInLabel, change;
+    private boolean pointExist = false;
+
     /**
      * Creates new form CurrencyConverter
      */
@@ -22,7 +29,28 @@ public class FCurrencyConverter extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
+        panel = new javax.swing.JPanel();
+        currencyLabel1 = new javax.swing.JLabel();
+        convertion1 = new javax.swing.JLabel();
+        currencyCombo1 = new javax.swing.JComboBox<>();
+        currencyLabel2 = new javax.swing.JLabel();
+        convertion2 = new javax.swing.JLabel();
+        currencyCombo2 = new javax.swing.JComboBox<>();
+        clearButton = new javax.swing.JButton();
+        deleteButton = new javax.swing.JButton();
+        sevenButton = new javax.swing.JButton();
+        eightButton = new javax.swing.JButton();
+        nineButton = new javax.swing.JButton();
+        fourButton = new javax.swing.JButton();
+        fiveButton = new javax.swing.JButton();
+        sixButton = new javax.swing.JButton();
+        oneButton = new javax.swing.JButton();
+        twoButton = new javax.swing.JButton();
+        threeButton = new javax.swing.JButton();
+        ceroButton = new javax.swing.JButton();
+        pointButton = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         standarCalculator = new javax.swing.JMenuItem();
@@ -32,8 +60,298 @@ public class FCurrencyConverter extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Currency Converter");
-        setPreferredSize(new java.awt.Dimension(300, 450));
         setSize(new java.awt.Dimension(300, 450));
+
+        panel.setLayout(new java.awt.GridBagLayout());
+
+        currencyLabel1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        currencyLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        currencyLabel1.setText("$");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.weighty = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(15, 15, 0, 10);
+        panel.add(currencyLabel1, gridBagConstraints);
+
+        convertion1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        convertion1.setText("0");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.weighty = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(15, 0, 0, 0);
+        panel.add(convertion1, gridBagConstraints);
+
+        currencyCombo1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        currencyCombo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "USA - United States Dollar", "PEN - Peruvian Sol", "EUR - Euro" }));
+        currencyCombo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                currencyCombo1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.weighty = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
+        panel.add(currencyCombo1, gridBagConstraints);
+
+        currencyLabel2.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        currencyLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        currencyLabel2.setText("$");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.weighty = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(15, 15, 0, 10);
+        panel.add(currencyLabel2, gridBagConstraints);
+
+        convertion2.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        convertion2.setText("0");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.weighty = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(15, 0, 0, 0);
+        panel.add(convertion2, gridBagConstraints);
+
+        currencyCombo2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "USA - United States Dollar", "PEN - Peruvian Sol", "EUR - Euro" }));
+        currencyCombo2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                currencyCombo2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.weighty = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
+        panel.add(currencyCombo2, gridBagConstraints);
+
+        clearButton.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        clearButton.setForeground(new java.awt.Color(255, 255, 255));
+        clearButton.setText("C");
+        clearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.weighty = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(15, 0, 0, 0);
+        panel.add(clearButton, gridBagConstraints);
+
+        deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/delete.png"))); // NOI18N
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.weighty = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(15, 0, 0, 0);
+        panel.add(deleteButton, gridBagConstraints);
+
+        sevenButton.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        sevenButton.setForeground(new java.awt.Color(255, 255, 255));
+        sevenButton.setText("7");
+        sevenButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sevenButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.weighty = 0.5;
+        panel.add(sevenButton, gridBagConstraints);
+
+        eightButton.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        eightButton.setForeground(new java.awt.Color(255, 255, 255));
+        eightButton.setText("8");
+        eightButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eightButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.weighty = 0.5;
+        panel.add(eightButton, gridBagConstraints);
+
+        nineButton.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        nineButton.setForeground(new java.awt.Color(255, 255, 255));
+        nineButton.setText("9");
+        nineButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nineButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.weighty = 0.5;
+        panel.add(nineButton, gridBagConstraints);
+
+        fourButton.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        fourButton.setForeground(new java.awt.Color(255, 255, 255));
+        fourButton.setText("4");
+        fourButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fourButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.weighty = 0.5;
+        panel.add(fourButton, gridBagConstraints);
+
+        fiveButton.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        fiveButton.setForeground(new java.awt.Color(255, 255, 255));
+        fiveButton.setText("5");
+        fiveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fiveButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.weighty = 0.5;
+        panel.add(fiveButton, gridBagConstraints);
+
+        sixButton.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        sixButton.setForeground(new java.awt.Color(255, 255, 255));
+        sixButton.setText("6");
+        sixButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sixButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.weighty = 0.5;
+        panel.add(sixButton, gridBagConstraints);
+
+        oneButton.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        oneButton.setForeground(new java.awt.Color(255, 255, 255));
+        oneButton.setText("1");
+        oneButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                oneButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.weighty = 0.5;
+        panel.add(oneButton, gridBagConstraints);
+
+        twoButton.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        twoButton.setForeground(new java.awt.Color(255, 255, 255));
+        twoButton.setText("2");
+        twoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                twoButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.weighty = 0.5;
+        panel.add(twoButton, gridBagConstraints);
+
+        threeButton.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        threeButton.setForeground(new java.awt.Color(255, 255, 255));
+        threeButton.setText("3");
+        threeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                threeButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.weighty = 0.5;
+        panel.add(threeButton, gridBagConstraints);
+
+        ceroButton.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        ceroButton.setForeground(new java.awt.Color(255, 255, 255));
+        ceroButton.setText("0");
+        ceroButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ceroButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.weighty = 0.5;
+        panel.add(ceroButton, gridBagConstraints);
+
+        pointButton.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        pointButton.setForeground(new java.awt.Color(255, 255, 255));
+        pointButton.setText(".");
+        pointButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pointButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.weighty = 0.5;
+        panel.add(pointButton, gridBagConstraints);
 
         jMenu1.setText("Usage");
         jMenu1.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
@@ -73,11 +391,11 @@ public class FCurrencyConverter extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 424, Short.MAX_VALUE)
+            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE)
         );
 
         pack();
@@ -92,6 +410,214 @@ public class FCurrencyConverter extends javax.swing.JFrame {
         calculadorFrame.setVisible(true);
         dispose();
     }//GEN-LAST:event_standarCalculatorActionPerformed
+
+    private void currencyCombo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_currencyCombo1ActionPerformed
+
+        // get what currency is selected
+        currencySelected1 = (String) currencyCombo1.getSelectedItem();
+
+        // verifies what currency was selected
+        if (currencySelected1.equals("USA - United States Dollar")) {
+            currencyLabel1.setText("$");// label changes to a dollar sign
+        } else if (currencySelected1.equals("PEN - Peruvian Sol")) {
+            currencyLabel1.setText("S/.");// label changes to a sol sign
+        } else if (currencySelected1.equals("EUR - Euro")) {
+            currencyLabel1.setText("€");// label changes to a Euro sign
+        }
+
+        getMoney();
+    }//GEN-LAST:event_currencyCombo1ActionPerformed
+
+    private void currencyCombo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_currencyCombo2ActionPerformed
+        // get what currency is selected
+        currencySelected2 = (String) currencyCombo2.getSelectedItem();
+
+        // verifies what currency was selected
+        if (currencySelected2.equals("USA - United States Dollar")) {
+            currencyLabel2.setText("$");// label changes to a dollar sign
+        } else if (currencySelected2.equals("PEN - Peruvian Sol")) {
+            currencyLabel2.setText("S/.");// label changes to a sol sign
+        } else if (currencySelected2.equals("EUR - Euro")) {
+            currencyLabel2.setText("€");// label changes to a Euro sign
+        }
+        getMoney();
+    }//GEN-LAST:event_currencyCombo2ActionPerformed
+
+    private void oneButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneButtonActionPerformed
+        if (convertion1.getText() == "0") {
+            moneyAmount = "1";
+        } else {
+            moneyAmount += "1";
+        }
+        convertion1.setText(moneyAmount);
+        getMoney();
+    }//GEN-LAST:event_oneButtonActionPerformed
+
+    private void twoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twoButtonActionPerformed
+        if (convertion1.getText() == "0") {
+            moneyAmount = "2";
+        } else {
+            moneyAmount += "2";
+        }
+        convertion1.setText(moneyAmount);
+        getMoney();
+    }//GEN-LAST:event_twoButtonActionPerformed
+
+    private void threeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_threeButtonActionPerformed
+        if (convertion1.getText() == "0") {
+            moneyAmount = "3";
+        } else {
+            moneyAmount += "3";
+        }
+        convertion1.setText(moneyAmount);
+        getMoney();
+    }//GEN-LAST:event_threeButtonActionPerformed
+
+    private void fourButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fourButtonActionPerformed
+        if (convertion1.getText() == "0") {
+            moneyAmount = "4";
+        } else {
+            moneyAmount += "4";
+        }
+        convertion1.setText(moneyAmount);
+        getMoney();
+    }//GEN-LAST:event_fourButtonActionPerformed
+
+    private void fiveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fiveButtonActionPerformed
+        if (convertion1.getText() == "0") {
+            moneyAmount = "5";
+        } else {
+            moneyAmount += "5";
+        }
+        convertion1.setText(moneyAmount);
+        getMoney();
+    }//GEN-LAST:event_fiveButtonActionPerformed
+
+    private void sixButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sixButtonActionPerformed
+        if (convertion1.getText() == "0") {
+            moneyAmount = "6";
+        } else {
+            moneyAmount += "6";
+        }
+        convertion1.setText(moneyAmount);
+        getMoney();
+    }//GEN-LAST:event_sixButtonActionPerformed
+
+    private void sevenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sevenButtonActionPerformed
+        if (convertion1.getText() == "0") {
+            moneyAmount = "7";
+        } else {
+            moneyAmount += "7";
+        }
+        convertion1.setText(moneyAmount);
+        getMoney();
+    }//GEN-LAST:event_sevenButtonActionPerformed
+
+    private void eightButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eightButtonActionPerformed
+        if (convertion1.getText() == "0") {
+            moneyAmount = "8";
+        } else {
+            moneyAmount += "8";
+        }
+        convertion1.setText(moneyAmount);
+        getMoney();
+    }//GEN-LAST:event_eightButtonActionPerformed
+
+    private void nineButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nineButtonActionPerformed
+        if (convertion1.getText() == "0") {
+            moneyAmount = "9";
+        } else {
+            moneyAmount += "9";
+        }
+        convertion1.setText(moneyAmount);
+        getMoney();
+    }//GEN-LAST:event_nineButtonActionPerformed
+
+    private void ceroButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ceroButtonActionPerformed
+        if (moneyAmount != "") {
+
+            if (convertion1.getText() == "0") {
+                moneyAmount = "0";
+            } else {
+                moneyAmount += "0";
+            }
+            convertion1.setText(moneyAmount);
+            getMoney();
+        }
+    }//GEN-LAST:event_ceroButtonActionPerformed
+
+    private void pointButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pointButtonActionPerformed
+        if (pointExist == false) {
+            if (moneyAmount == "") {
+                moneyAmount = "0.";
+            } else {
+                moneyAmount += ".";
+            }
+            convertion1.setText(moneyAmount);
+            getMoney();
+            pointExist = true;
+        }
+       
+    }//GEN-LAST:event_pointButtonActionPerformed
+
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+        if (moneyAmount.length() > 0){
+            
+            if (moneyAmount.length() == 1){
+                moneyAmount = "0";
+            } else {
+                moneyAmount = moneyAmount.substring(0, moneyAmount.length()-1);
+            }
+             convertion1.setText(moneyAmount);
+             getMoney();
+        }
+    }//GEN-LAST:event_deleteButtonActionPerformed
+
+    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
+        moneyAmount = "";
+        pointExist = false;
+        convertion1.setText("0");
+        convertion2.setText("0");
+    }//GEN-LAST:event_clearButtonActionPerformed
+
+    /**
+     * Gets the final total money
+     */
+    private void getMoney() {
+        moneyAmount = convertion1.getText();
+        moneyInLabel = Double.parseDouble(moneyAmount);
+        changeCurrency();
+        moneyInLabel *= change;
+        convertion2.setText(String.format("%.2f", moneyInLabel));
+    }
+
+    /**
+     * Convertion Method
+     */
+    private void changeCurrency() {
+        if (currencySelected1.equals(currencySelected2)) {
+            change = 1;
+        } else if (currencyCombo1.getSelectedItem().equals("USA - United States Dollar")
+                && currencyCombo2.getSelectedItem().equals("PEN - Peruvian Sol")) {
+            change = 3.86;
+        } else if (currencyCombo1.getSelectedItem().equals("USA - United States Dollar")
+                && currencyCombo2.getSelectedItem().equals("EUR - Euro")) {
+            change = 0.92;
+        } else if (currencyCombo1.getSelectedItem().equals("PEN - Peruvian Sol")
+                && currencyCombo2.getSelectedItem().equals("USA - United States Dollar")) {
+            change = 0.27;
+        } else if (currencyCombo1.getSelectedItem().equals("PEN - Peruvian Sol")
+                && currencyCombo2.getSelectedItem().equals("EUR - Euro")) {
+            change = 0.24;
+        } else if (currencyCombo1.getSelectedItem().equals("EUR - Euro")
+                && currencyCombo2.getSelectedItem().equals("USA - United States Dollar")) {
+            change = 1.09;
+        } else if (currencyCombo1.getSelectedItem().equals("EUR - Euro")
+                && currencyCombo2.getSelectedItem().equals("PEN - Peruvian Sol")) {
+            change = 4.12;
+        }
+
+    }
 
     /**
      * @param args the command line arguments
@@ -140,11 +666,31 @@ public class FCurrencyConverter extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ceroButton;
+    private javax.swing.JButton clearButton;
+    private javax.swing.JLabel convertion1;
+    private javax.swing.JLabel convertion2;
+    private javax.swing.JComboBox<String> currencyCombo1;
+    private javax.swing.JComboBox<String> currencyCombo2;
     private javax.swing.JMenuItem currencyConverter;
+    private javax.swing.JLabel currencyLabel1;
+    private javax.swing.JLabel currencyLabel2;
+    private javax.swing.JButton deleteButton;
+    private javax.swing.JButton eightButton;
     private javax.swing.JMenuItem exit;
+    private javax.swing.JButton fiveButton;
+    private javax.swing.JButton fourButton;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JMenuBar menuBar;
+    private javax.swing.JButton nineButton;
+    private javax.swing.JButton oneButton;
+    private javax.swing.JPanel panel;
+    private javax.swing.JButton pointButton;
+    private javax.swing.JButton sevenButton;
+    private javax.swing.JButton sixButton;
     private javax.swing.JMenuItem standarCalculator;
+    private javax.swing.JButton threeButton;
+    private javax.swing.JButton twoButton;
     // End of variables declaration//GEN-END:variables
 }
