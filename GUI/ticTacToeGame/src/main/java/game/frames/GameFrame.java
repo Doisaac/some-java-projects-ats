@@ -17,6 +17,9 @@ public class GameFrame extends javax.swing.JFrame {
     
     private String user1;
     private String user2;
+    private int user1Victories = 0;
+    private int user2Victories = 0;
+    private int ties = 0;
     
     // This matrix allows us to know which box is available to click
     private boolean box[][] = new boolean[3][3];
@@ -211,6 +214,11 @@ public class GameFrame extends javax.swing.JFrame {
         showResults.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         showResults.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/results.png"))); // NOI18N
         showResults.setText("Show results");
+        showResults.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showResultsActionPerformed(evt);
+            }
+        });
         gameMenu.add(showResults);
         gameMenu.add(jSeparator1);
 
@@ -396,6 +404,12 @@ public class GameFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_button22ActionPerformed
 
+    private void showResultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showResultsActionPerformed
+        //When clicked
+        Results results = new Results(this, true, user1, user2, user1Victories, user2Victories, ties);
+        results.setVisible(true);
+    }//GEN-LAST:event_showResultsActionPerformed
+
     /**
      * Checks which user has won the match
      */
@@ -410,10 +424,12 @@ public class GameFrame extends javax.swing.JFrame {
         if (winner1 == true) {
             WinnerFrame winnerf = new WinnerFrame(this, true, user1);
             winnerf.setVisible(true);
+            user1Victories++;
             restartGame();
         } else if (winner2 == true) {
             WinnerFrame winnerf = new WinnerFrame(this, true, user2);
             winnerf.setVisible(true);
+            user2Victories++;
             restartGame();
         } else { // checks if there is a tie
             for (int i = 0; i < 3; i++) {
@@ -427,6 +443,7 @@ public class GameFrame extends javax.swing.JFrame {
             if (tie == 9){
                 tieFrame tief = new tieFrame(this, true);
                 tief.setVisible(true);
+                ties++;
                 restartGame();
             } else{
                 tie = 0;
