@@ -4,59 +4,20 @@
  */
 package game.frames;
 
-import java.awt.Color;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.UIManager;
-
-
 /**
  *
  * @author MrDoisaac
  */
 public class Main extends javax.swing.JFrame {
-    // This matrix allows us to know which box is available to click
-    private boolean box[][] = new boolean[3][3];
-    // First user will be X
-    private String turn = "user1";
+    private String user1;
+    private String user2;
     
     /**
      * Creates new form Main
      */
     public Main() {
         initComponents();
-        UIManager.put("menuBar.background", Color.RED);
-        setSize(600, 600);
         setLocationRelativeTo(null);
-        initializeBox();
-    }
-    
-    /**
-     * Initialize all the matrix as true, referring that all the box
-     * is available to click
-     */
-    private void initializeBox() {
-        for (int i = 0; i < box.length; i++) {
-            for (int j = 0; j < box[i].length; j++) {
-                box[i][j] = true;
-            }
-        }
-    }
-    
-    /**
-     * Draws an "X" on the button given as an argument
-     * @param button The button where the x will be drawn
-     */
-    private void drawX(JButton button){
-        button.setIcon(new ImageIcon(getClass().getResource("/img/x.png")));
-    }
-    
-    /**
-     * Draws an "O" on the button given as an argument
-     * @param button The button where the "O" will be drawn
-     */
-    private void drawO (JButton button){
-        button.setIcon(new ImageIcon(getClass().getResource("/img/circle.png")));
     }
 
     /**
@@ -68,143 +29,112 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuItem3 = new javax.swing.JMenuItem();
-        panel = new javax.swing.JPanel();
-        button00 = new javax.swing.JButton();
-        button01 = new javax.swing.JButton();
-        button02 = new javax.swing.JButton();
-        button10 = new javax.swing.JButton();
-        button11 = new javax.swing.JButton();
-        button12 = new javax.swing.JButton();
-        button20 = new javax.swing.JButton();
-        button21 = new javax.swing.JButton();
-        button22 = new javax.swing.JButton();
-        menuBar = new javax.swing.JMenuBar();
-        gameMenu = new javax.swing.JMenu();
-        startAgain = new javax.swing.JMenuItem();
-        showResults = new javax.swing.JMenuItem();
-        jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        exit = new javax.swing.JMenuItem();
-        helpMenu = new javax.swing.JMenu();
-
-        jMenuItem3.setText("jMenuItem3");
+        jPanel1 = new javax.swing.JPanel();
+        user1Rol = new javax.swing.JLabel();
+        user2Rol = new javax.swing.JLabel();
+        username2Field = new javax.swing.JTextField();
+        giftImg = new javax.swing.JLabel();
+        username1Field = new javax.swing.JTextField();
+        saveUserButton = new javax.swing.JButton();
+        playButton = new javax.swing.JButton();
+        backgroundImg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(865, 620));
+        setResizable(false);
 
-        panel.setLayout(new java.awt.GridLayout(3, 3));
+        jPanel1.setLayout(null);
 
-        button00.setBackground(new java.awt.Color(20, 189, 172));
-        button00.setOpaque(true);
-        button00.addActionListener(new java.awt.event.ActionListener() {
+        user1Rol.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jPanel1.add(user1Rol);
+        user1Rol.setBounds(30, 490, 300, 30);
+
+        user2Rol.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jPanel1.add(user2Rol);
+        user2Rol.setBounds(30, 540, 300, 30);
+
+        username2Field.setBackground(new java.awt.Color(255, 255, 255));
+        username2Field.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jPanel1.add(username2Field);
+        username2Field.setBounds(600, 360, 220, 30);
+
+        giftImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/tictactoe.gif"))); // NOI18N
+        jPanel1.add(giftImg);
+        giftImg.setBounds(60, 200, 270, 300);
+
+        username1Field.setBackground(new java.awt.Color(255, 255, 255));
+        username1Field.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jPanel1.add(username1Field);
+        username1Field.setBounds(600, 210, 220, 30);
+
+        saveUserButton.setBackground(new java.awt.Color(207, 216, 228));
+        saveUserButton.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        saveUserButton.setForeground(new java.awt.Color(0, 0, 0));
+        saveUserButton.setText("SAVE USERS");
+        saveUserButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        saveUserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button00ActionPerformed(evt);
+                saveUserButtonActionPerformed(evt);
             }
         });
-        panel.add(button00);
+        jPanel1.add(saveUserButton);
+        saveUserButton.setBounds(430, 470, 200, 50);
 
-        button01.setBackground(new java.awt.Color(20, 189, 172));
-        button01.setOpaque(true);
-        panel.add(button01);
-
-        button02.setBackground(new java.awt.Color(20, 189, 172));
-        button02.setOpaque(true);
-        panel.add(button02);
-
-        button10.setBackground(new java.awt.Color(20, 189, 172));
-        button10.setOpaque(true);
-        panel.add(button10);
-
-        button11.setBackground(new java.awt.Color(20, 189, 172));
-        button11.setOpaque(true);
-        panel.add(button11);
-
-        button12.setBackground(new java.awt.Color(20, 189, 172));
-        button12.setOpaque(true);
-        panel.add(button12);
-
-        button20.setBackground(new java.awt.Color(20, 189, 172));
-        button20.setOpaque(true);
-        panel.add(button20);
-
-        button21.setBackground(new java.awt.Color(20, 189, 172));
-        button21.setOpaque(true);
-        panel.add(button21);
-
-        button22.setBackground(new java.awt.Color(20, 189, 172));
-        button22.setOpaque(true);
-        panel.add(button22);
-
-        menuBar.setBackground(new java.awt.Color(51, 51, 51));
-        menuBar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        menuBar.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
-        menuBar.setOpaque(true);
-
-        gameMenu.setBackground(new java.awt.Color(51, 51, 51));
-        gameMenu.setText("Game");
-        gameMenu.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-
-        startAgain.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        startAgain.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/startAgain.png"))); // NOI18N
-        startAgain.setText("Start again");
-        gameMenu.add(startAgain);
-
-        showResults.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        showResults.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/results.png"))); // NOI18N
-        showResults.setText("Show results");
-        gameMenu.add(showResults);
-        gameMenu.add(jSeparator1);
-
-        exit.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exit.png"))); // NOI18N
-        exit.setText("Exit");
-        exit.addActionListener(new java.awt.event.ActionListener() {
+        playButton.setBackground(new java.awt.Color(207, 216, 228));
+        playButton.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        playButton.setForeground(new java.awt.Color(0, 0, 0));
+        playButton.setText("LET'S PLAY");
+        playButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        playButton.setEnabled(false);
+        playButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitActionPerformed(evt);
+                playButtonActionPerformed(evt);
             }
         });
-        gameMenu.add(exit);
+        jPanel1.add(playButton);
+        playButton.setBounds(650, 470, 200, 50);
 
-        menuBar.add(gameMenu);
-
-        helpMenu.setBackground(new java.awt.Color(51, 51, 51));
-        helpMenu.setText("Help");
-        helpMenu.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        menuBar.add(helpMenu);
-
-        setJMenuBar(menuBar);
+        backgroundImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/backgroundImg.png"))); // NOI18N
+        jPanel1.add(backgroundImg);
+        backgroundImg.setBounds(0, 0, 870, 590);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 865, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
-        // exit button
-        System.exit(0);
-    }//GEN-LAST:event_exitActionPerformed
+    private void playButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playButtonActionPerformed
+        GameFrame game = new GameFrame(user1, user2);
+        game.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_playButtonActionPerformed
 
-    private void button00ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button00ActionPerformed
-        if(box[0][0] == true){
-            if (turn.equals("user1")){
-                drawX(button00);
-                turn = "user2";
-            }
-            else{
-                drawO(button00);
-                turn = "user1";
-            }
-            box[0][0] = false;
+    private void saveUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveUserButtonActionPerformed
+        if(username1Field.getText().isEmpty() || username2Field.getText().isEmpty()){
+            user1Rol.setText("Please enter both usernames");
+        } else {
+            // get both usernames and save them into a variable 
+            user1 = username1Field.getText();
+            user2 = username2Field.getText();
+            // deactives the button "save usernames"
+            saveUserButton.setEnabled(false);
+            // activates the play button
+            playButton.setEnabled(true);
+            
+            // show the rol for both users
+            user1Rol.setText(user1 + " will play first with: X");
+            user2Rol.setText(user2 + " will play second with: O");
         }
-    }//GEN-LAST:event_button00ActionPerformed
+    }//GEN-LAST:event_saveUserButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,9 +162,6 @@ public class Main extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -245,23 +172,14 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton button00;
-    private javax.swing.JButton button01;
-    private javax.swing.JButton button02;
-    private javax.swing.JButton button10;
-    private javax.swing.JButton button11;
-    private javax.swing.JButton button12;
-    private javax.swing.JButton button20;
-    private javax.swing.JButton button21;
-    private javax.swing.JButton button22;
-    private javax.swing.JMenuItem exit;
-    private javax.swing.JMenu gameMenu;
-    private javax.swing.JMenu helpMenu;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JPopupMenu.Separator jSeparator1;
-    private javax.swing.JMenuBar menuBar;
-    private javax.swing.JPanel panel;
-    private javax.swing.JMenuItem showResults;
-    private javax.swing.JMenuItem startAgain;
+    private javax.swing.JLabel backgroundImg;
+    private javax.swing.JLabel giftImg;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton playButton;
+    private javax.swing.JButton saveUserButton;
+    private javax.swing.JLabel user1Rol;
+    private javax.swing.JLabel user2Rol;
+    private javax.swing.JTextField username1Field;
+    private javax.swing.JTextField username2Field;
     // End of variables declaration//GEN-END:variables
 }
