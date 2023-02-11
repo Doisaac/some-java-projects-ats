@@ -408,10 +408,12 @@ public class GameFrame extends javax.swing.JFrame {
         winner2 = checkPossibleWinner(2);
 
         if (winner1 == true) {
-            System.out.println(user1 + " WINS!!!");
+            WinnerFrame winnerf = new WinnerFrame(this, true, user1);
+            winnerf.setVisible(true);
             restartGame();
         } else if (winner2 == true) {
-            System.out.println(user2 + " WINS!!!");
+            WinnerFrame winnerf = new WinnerFrame(this, true, user2);
+            winnerf.setVisible(true);
             restartGame();
         } else { // checks if there is a tie
             for (int i = 0; i < 3; i++) {
@@ -423,7 +425,8 @@ public class GameFrame extends javax.swing.JFrame {
             }
             
             if (tie == 9){
-                System.out.println("THERE HAS BEEN A TIE!");
+                tieFrame tief = new tieFrame(this, true);
+                tief.setVisible(true);
                 restartGame();
             } else{
                 tie = 0;
