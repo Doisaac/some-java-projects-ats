@@ -37,6 +37,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Start again"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="startAgainActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="showResults">
               <Properties>

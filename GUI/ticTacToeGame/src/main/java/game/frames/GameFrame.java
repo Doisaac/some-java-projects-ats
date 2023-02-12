@@ -27,16 +27,16 @@ public class GameFrame extends javax.swing.JFrame {
     // This matrix allows us to know which player wins each match
     private int winnerMatrix[][] = new int[3][3];
 
-    // First user will be X
-    private String turn = "user1";
+    private String turn;
 
     /**
      * Creates new form Main
      */
     public GameFrame(String user1, String user2) {
-        initComponents();
         this.user1 = user1;
         this.user2 = user2;
+        this.turn = user1;
+        initComponents();
         setSize(600, 600);
         setLocationRelativeTo(null);
         initializeBox();
@@ -209,6 +209,11 @@ public class GameFrame extends javax.swing.JFrame {
         startAgain.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         startAgain.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/startAgain.png"))); // NOI18N
         startAgain.setText("Start again");
+        startAgain.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                startAgainActionPerformed(evt);
+            }
+        });
         gameMenu.add(startAgain);
 
         showResults.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -262,14 +267,14 @@ public class GameFrame extends javax.swing.JFrame {
 
     private void button00ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button00ActionPerformed
         if (box[0][0] == true) {
-            if (turn.equals("user1")) {
+            if (turn.equals(user1)) {
                 drawX(button00);
                 winnerMatrix[0][0] = 1;
-                turn = "user2";
+                turn = user2;
             } else {
                 drawO(button00);
                 winnerMatrix[0][0] = 2;
-                turn = "user1";
+                turn = user1;
             }
             box[0][0] = false;
             checkWinner();
@@ -278,14 +283,14 @@ public class GameFrame extends javax.swing.JFrame {
 
     private void button01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button01ActionPerformed
         if (box[0][1] == true) {
-            if (turn.equals("user1")) {
+            if (turn.equals(user1)) {
                 button01.setIcon(new ImageIcon(getClass().getResource("/img/x.png")));
                 winnerMatrix[0][1] = 1;
-                turn = "user2";
+                turn = user2;
             } else {
                 button01.setIcon(new ImageIcon(getClass().getResource("/img/circle.png")));
                 winnerMatrix[0][1] = 2;
-                turn = "user1";
+                turn = user1;
             }
             box[0][1] = false;
             checkWinner();
@@ -294,14 +299,14 @@ public class GameFrame extends javax.swing.JFrame {
 
     private void button02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button02ActionPerformed
         if (box[0][2] == true) {
-            if (turn.equals("user1")) {
+            if (turn.equals(user1)) {
                 button02.setIcon(new ImageIcon(getClass().getResource("/img/x.png")));
                 winnerMatrix[0][2] = 1;
-                turn = "user2";
+                turn = user2;
             } else {
                 button02.setIcon(new ImageIcon(getClass().getResource("/img/circle.png")));
                 winnerMatrix[0][2] = 2;
-                turn = "user1";
+                turn = user1;
             }
             box[0][2] = false;
             checkWinner();
@@ -310,14 +315,14 @@ public class GameFrame extends javax.swing.JFrame {
 
     private void button10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button10ActionPerformed
         if (box[1][0] == true) {
-            if (turn.equals("user1")) {
+            if (turn.equals(user1)) {
                 button10.setIcon(new ImageIcon(getClass().getResource("/img/x.png")));
                 winnerMatrix[1][0] = 1;
-                turn = "user2";
+                turn = user2;
             } else {
                 button10.setIcon(new ImageIcon(getClass().getResource("/img/circle.png")));
                 winnerMatrix[1][0] = 2;
-                turn = "user1";
+                turn = user1;
             }
             box[1][0] = false;
             checkWinner();
@@ -326,14 +331,14 @@ public class GameFrame extends javax.swing.JFrame {
 
     private void button11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button11ActionPerformed
         if (box[1][1] == true) {
-            if (turn.equals("user1")) {
+            if (turn.equals(user1)) {
                 button11.setIcon(new ImageIcon(getClass().getResource("/img/x.png")));
                 winnerMatrix[1][1] = 1;
-                turn = "user2";
+                turn = user2;
             } else {
                 button11.setIcon(new ImageIcon(getClass().getResource("/img/circle.png")));
                 winnerMatrix[1][1] = 2;
-                turn = "user1";
+                turn = user1;
             }
             box[1][1] = false;
             checkWinner();
@@ -342,14 +347,14 @@ public class GameFrame extends javax.swing.JFrame {
 
     private void button12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button12ActionPerformed
         if (box[1][2] == true) {
-            if (turn.equals("user1")) {
+            if (turn.equals(user1)) {
                 button12.setIcon(new ImageIcon(getClass().getResource("/img/x.png")));
                 winnerMatrix[1][2] = 1;
-                turn = "user2";
+                turn = user2;
             } else {
                 button12.setIcon(new ImageIcon(getClass().getResource("/img/circle.png")));
                 winnerMatrix[1][2] = 2;
-                turn = "user1";
+                turn = user1;
             }
             box[1][2] = false;
             checkWinner();
@@ -358,14 +363,14 @@ public class GameFrame extends javax.swing.JFrame {
 
     private void button20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button20ActionPerformed
         if (box[2][0] == true) {
-            if (turn.equals("user1")) {
+            if (turn.equals(user1)) {
                 button20.setIcon(new ImageIcon(getClass().getResource("/img/x.png")));
                 winnerMatrix[2][0] = 1;
-                turn = "user2";
+                turn = user2;
             } else {
                 button20.setIcon(new ImageIcon(getClass().getResource("/img/circle.png")));
                 winnerMatrix[2][0] = 2;
-                turn = "user1";
+                turn = user1;
             }
             box[2][0] = false;
             checkWinner();
@@ -374,14 +379,14 @@ public class GameFrame extends javax.swing.JFrame {
 
     private void button21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button21ActionPerformed
         if (box[2][1] == true) {
-            if (turn.equals("user1")) {
+            if (turn.equals(user1)) {
                 button21.setIcon(new ImageIcon(getClass().getResource("/img/x.png")));
                 winnerMatrix[2][1] = 1;
-                turn = "user2";
+                turn = user2;
             } else {
                 button21.setIcon(new ImageIcon(getClass().getResource("/img/circle.png")));
                 winnerMatrix[2][1] = 2;
-                turn = "user1";
+                turn = user1;
             }
             box[2][1] = false;
             checkWinner();
@@ -390,14 +395,14 @@ public class GameFrame extends javax.swing.JFrame {
 
     private void button22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button22ActionPerformed
         if (box[2][2] == true) {
-            if (turn.equals("user1")) {
+            if (turn.equals(user1)) {
                 button22.setIcon(new ImageIcon(getClass().getResource("/img/x.png")));
                 winnerMatrix[2][2] = 1;
-                turn = "user2";
+                turn = user2;
             } else {
                 button22.setIcon(new ImageIcon(getClass().getResource("/img/circle.png")));
                 winnerMatrix[2][2] = 2;
-                turn = "user1";
+                turn = user1;
             }
             box[2][2] = false;
             checkWinner();
@@ -409,6 +414,13 @@ public class GameFrame extends javax.swing.JFrame {
         Results results = new Results(this, true, user1, user2, user1Victories, user2Victories, ties);
         results.setVisible(true);
     }//GEN-LAST:event_showResultsActionPerformed
+
+    private void startAgainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startAgainActionPerformed
+        user1Victories = 0;
+        user2Victories = 0;
+        ties = 0;
+        restartGame();
+    }//GEN-LAST:event_startAgainActionPerformed
 
     /**
      * Checks which user has won the match
@@ -511,7 +523,17 @@ public class GameFrame extends javax.swing.JFrame {
         button21.setIcon(null);
         button22.setIcon(null);
         
-        turn = "user1";
+        // Asks the user who will play first
+        whoPlayFirst();
+    }
+    
+    /**
+     * Method that shows a JDialog asking who is going to be next user to play
+     */
+    private void whoPlayFirst(){
+        ChooseTurn chooseTurn = new ChooseTurn(this, true, user1, user2);
+        chooseTurn.setVisible(true);
+        turn = chooseTurn.getTurn();
     }
     
     /**
