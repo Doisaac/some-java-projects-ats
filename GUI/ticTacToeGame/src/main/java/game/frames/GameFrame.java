@@ -5,6 +5,12 @@
 package game.frames;
 
 import java.awt.Color;
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.UIManager;
@@ -242,6 +248,11 @@ public class GameFrame extends javax.swing.JFrame {
         helpMenu.setBackground(new java.awt.Color(51, 51, 51));
         helpMenu.setText("Help");
         helpMenu.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        helpMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                helpMenuMouseClicked(evt);
+            }
+        });
         menuBar.add(helpMenu);
 
         setJMenuBar(menuBar);
@@ -421,6 +432,22 @@ public class GameFrame extends javax.swing.JFrame {
         ties = 0;
         restartGame();
     }//GEN-LAST:event_startAgainActionPerformed
+    
+    /**
+     * When clicked the user will be redirect to a web page that will 
+       explain him how to play tic-tac-toe
+     * @param evt 
+     */
+    private void helpMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_helpMenuMouseClicked
+        try {
+            Desktop.getDesktop().browse(new URI("https://www.wikihow.com/Play-Tic-Tac-Toe"));
+        } catch (URISyntaxException ex) {
+            //Logger.getLogger(GameFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            //Logger.getLogger(GameFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_helpMenuMouseClicked
 
     /**
      * Checks which user has won the match
