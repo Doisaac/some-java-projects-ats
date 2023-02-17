@@ -99,7 +99,7 @@ public class CreateWriteReadTextFile {
         } catch (FileNotFoundException ex) {
             System.err.println("Error" + ex);
         } catch (IOException ex) {
-                Logger.getLogger(CreateWriteReadTextFile.class.getName()).log(Level.SEVERE, null, ex);
+            System.err.println("Error" + ex);
         }
     }
 }
