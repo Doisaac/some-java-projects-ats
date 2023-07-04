@@ -111,7 +111,7 @@ INNER JOIN PRODUCT_PROVIDER PP
 ON P.IDPRODUCT = PP.IDPRODUCT
 INNER JOIN PROVIDERS PR
 ON PP.IDPROVIDER = PR.IDPROVIDER;
-alter ta
+
 -- Testing the view
 SELECT * FROM product_serial_category_provider;
 
@@ -125,3 +125,37 @@ ON PP.IDPROVIDER = PRO.IDPROVIDER;
 
 -- Testing the view product_provider_view
 SELECT * FROM product_provider_view;
+
+-- Delete a view
+drop view product_provider_view;
+
+-- PROCEDURES : SOME STEPS SAVED AS A FUNCTION THAT CAN BE CALLED IN THE PROGRAM
+DELIMITER //
+create procedure productxCategoria
+(in id int)
+begin
+	select * from Product
+    where idCategory = id;
+end //
+DELIMITER ;
+
+select version();
+
+-- Testing the procedure
+call productxCategoria(5);
+
+-- Deleting
+drop procedure productxCategoria;
+
+# TRIGGERS : Events that are going to be called automatically after something we define
+
+select * from category;
+delimiter |
+create trigger insertIntoTemporal before insert on category
+for each row
+begin 	
+	insert into temporal (category) values (new.name);
+end |
+
+select * from temporal;
+insert into category (name) values ('Chips');
