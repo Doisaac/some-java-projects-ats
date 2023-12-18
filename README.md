@@ -11,4 +11,5 @@
 
 * [Sign Up and Sign in system using a MySQL database](https://github.com/Doisaac/someJavaProjects/tree/main/databases/java-sql/registerOfUsersWithWednesdayTheme)
 * [Casio Chronometer](https://github.com/Doisaac/someJavaProjects/tree/main/GUI/casioChronometer)
+* [Calculator and Converter](https://github.com/Doisaac/someJavaProjects/tree/main/GUI/calculatorAndConverter)
 
